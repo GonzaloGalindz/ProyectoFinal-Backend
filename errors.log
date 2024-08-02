@@ -1,0 +1,40 @@
+{
+  message: 'Fatal',
+  level: 'fatal',
+  timestamp: '2024-06-03T01:50:00.112Z'
+}
+{
+  message: 'Error',
+  level: 'error',
+  timestamp: '2024-06-03T01:50:00.115Z'
+}
+{
+  message: 'Warning',
+  level: 'warning',
+  timestamp: '2024-06-03T01:50:00.115Z'
+}
+{
+  message: 'Info',
+  level: 'info',
+  timestamp: '2024-06-03T01:50:00.115Z'
+}
+{
+  message: 'Fatal',
+  level: 'fatal',
+  timestamp: '2024-06-03T01:50:25.402Z'
+}
+{
+  message: 'Error',
+  level: 'error',
+  timestamp: '2024-06-03T01:50:25.402Z'
+}
+{
+  message: 'Warning',
+  level: 'warning',
+  timestamp: '2024-06-03T01:50:25.403Z'
+}
+{
+  message: 'Info',
+  level: 'info',
+  timestamp: '2024-06-03T01:50:25.403Z'
+}

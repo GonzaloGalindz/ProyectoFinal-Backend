@@ -1,0 +1,84 @@
+<div class="formularios">
+  <div>
+    <h2 style="background-color: rgba(88, 255, 17, 0.907);">Agregar Producto</h2>
+    <form id="formProduct">
+      Title:
+      <input type="text" name="title" id="title" required />
+      Description:
+      <input type="text" name="description" id="description" required />
+      Price:
+      <input type="number" name="price" id="price" required />
+      Stock:
+      <input type="number" name="stock" id="stock" required />
+      Code:
+      <input type="text" name="code" id="code" required />
+      <input type="submit" value="Añadir" />
+    </form>
+  </div>
+  <div>
+    <h2 style="background-color: rgb(255, 47, 47);">Eliminar Producto</h2>
+    <form id="deleteProduct">
+      ID:
+      <input type="text" name="_id" id="_id" />
+      <input type="submit" value="Eliminar" />
+    </form>
+  </div>
+</div>
+
+<table id="tableProds" style="background-color: rgb(108, 110, 239);">
+  <thead>
+    <tr>
+      <th
+        style="padding: 1rem; font-size: 1.5rem;border: 1px solid black;"
+      >ID</th>
+      <th
+        style="padding: 1rem; font-size: 1.5rem;border: 1px solid black;"
+      >Title</th>
+      <th
+        style="padding: 1rem; font-size: 1.5rem;border: 1px solid black;"
+      >Description</th>
+      <th
+        style="padding: 1rem; font-size: 1.5rem;border: 1px solid black;"
+      >Price</th>
+      <th
+        style="padding: 1rem; font-size: 1.5rem;border: 1px solid black;"
+      >Stock</th>
+      <th
+        style="padding: 1rem; font-size: 1.5rem;border: 1px solid black;"
+      >Code</th>
+      <th
+        style="padding: 1rem; font-size: 1.5rem;border: 1px solid black;"
+      ><button
+          type="button"
+          onclick="location.href='/cart/{{usuario.cart._id}}'"
+          style="font-size: large; background-color: black; color:white; cursor:pointer"
+        >My Cart</button></th>
+    </tr>
+  </thead>
+  <tbody id="bodyProd">
+    {{#each products}}
+      <tr style="text-align: center;">
+        <td style="padding: 0.7rem;border: 1px solid black;">{{_id}}</td>
+        <td style="padding: 0.7rem;border: 1px solid black;">{{title}}</td>
+        <td
+          style="padding: 0.7rem;border: 1px solid black;"
+        >{{description}}</td>
+        <td style="padding: 0.7rem;border: 1px solid black;">${{price}}</td>
+        <td style="padding: 0.7rem;border: 1px solid black;">{{stock}}</td>
+        <td style="padding: 0.7rem;border: 1px solid black;">{{code}}</td>
+        <td style="padding: 0.7rem;border: 1px solid black;"><button
+            data-product-id={{_id}}
+            onclick="addToCart('{{_id}}')"
+            style="cursor:pointer"
+          >Add to cart</button></td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<button type="button" style="margin-top: 1rem;"><a
+    href="/api/sessions/logout"
+  >Logout</a></button>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="index.js"></script>

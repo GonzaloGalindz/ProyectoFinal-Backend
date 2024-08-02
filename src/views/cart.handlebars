@@ -1,0 +1,66 @@
+<h1>My Cart</h1>
+
+{{#if products}}
+  {{#each products}}
+    <table style="background-color: rgb(108, 110, 239);">
+      <thead>
+        <tr>
+          <th
+            style="padding: 1rem; font-size: 1.5rem;border: 1px solid black;"
+          >Title</th>
+          <th
+            style="padding: 1rem; font-size: 1.5rem;border: 1px solid black;"
+          >Description</th>
+          <th
+            style="padding: 1rem; font-size: 1.5rem;border: 1px solid black;"
+          >Price</th>
+          <th
+            style="padding: 1rem; font-size: 1.5rem;border: 1px solid black;"
+          >Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="text-align: center;">
+          <td
+            style="padding: 0.7rem;border: 1px solid black;"
+          >{{_id.title}}</td>
+          <td
+            style="padding: 0.7rem;border: 1px solid black;"
+          >{{_id.description}}</td>
+          <td
+            style="padding: 0.7rem;border: 1px solid black;"
+          >${{_id.price}}</td>
+          <td style="padding: 0.7rem;border: 1px solid black;">{{quantity}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button
+      style="font-size: large; background-color: black; color:white; cursor:pointer; padding: 1rem; margin-top: 1.1rem; margin-left: 13rem"
+    >Finalizar compra</button>
+  {{/each}}
+{{else}}
+  <table style="background-color: rgb(108, 110, 239);">
+    <thead>
+      <tr>
+        <th
+          style="padding: 1rem; font-size: 1.5rem;border: 1px solid black;"
+        >Title</th>
+        <th
+          style="padding: 1rem; font-size: 1.5rem;border: 1px solid black;"
+        >Description</th>
+        <th
+          style="padding: 1rem; font-size: 1.5rem;border: 1px solid black;"
+        >Price</th>
+        <th
+          style="padding: 1rem; font-size: 1.5rem;border: 1px solid black;"
+        >Quantity</th>
+      </tr>
+    </thead>
+  </table>
+  <h3>Aún no se han añadido productos al carrito</h3>
+{{/if}}
+
+<h3><a href="/">Go to the main page</a></h3>
+<h3><a href="/products">Go to all products view</a></h3>
+
+<script src="/socket.io/socket.io.js"></script>

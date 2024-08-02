@@ -1,0 +1,58 @@
+<h2>Bienvenido a la lista de productos
+  {{usuario.first_name}}
+  {{usuario.last_name}}</h2>
+<h3>Tu email es: {{usuario.email}}</h3>
+<h3>Tu rol es: {{usuario.role}}</h3>
+
+<table style="background-color: rgb(108, 110, 239);">
+  <thead>
+    <tr>
+      <th
+        style="padding: 1rem; font-size: 1.5rem;border: 1px solid black;"
+      >ID</th>
+      <th
+        style="padding: 1rem; font-size: 1.5rem;border: 1px solid black;"
+      >Title</th>
+      <th
+        style="padding: 1rem; font-size: 1.5rem;border: 1px solid black;"
+      >Description</th>
+      <th
+        style="padding: 1rem; font-size: 1.5rem;border: 1px solid black;"
+      >Price</th>
+      <th
+        style="padding: 1rem; font-size: 1.5rem;border: 1px solid black;"
+      >Stock</th>
+      <th
+        style="padding: 1rem; font-size: 1.5rem;border: 1px solid black;"
+      >Code</th>
+      <th style="padding: 1rem; border: 1px solid black;"><button
+          onclick="location.href='/cart/{{usuario.cart._id}}'"
+          style="font-size: large; background-color: black; color:white; cursor:pointer"
+        >My Cart</button></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each products}}
+      <tr style="text-align: center;">
+        <td style="padding: 0.7rem; border: 1px solid black;">{{_id}}</td>
+        <td style="padding: 0.7rem;border: 1px solid black;">{{title}}</td>
+        <td
+          style="padding: 0.7rem;border: 1px solid black;"
+        >{{description}}</td>
+        <td style="padding: 0.7rem;border: 1px solid black;">${{price}}</td>
+        <td style="padding: 0.7rem;border: 1px solid black;">{{stock}}</td>
+        <td style="padding: 0.7rem;border: 1px solid black;">{{code}}</td>
+        <td style="padding: 0.7rem;border: 1px solid black;"><button
+            style="cursor:pointer"
+          >Add to cart</button></td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<button type="button" style="margin-top: 1rem;"><a
+    href="/api/sessions/logout"
+  >Logout</a></button>
+
+<script src="\public\js\cart.js"></script>
+<script src="/socket.io/socket.io.js"></script>
